@@ -1,0 +1,112 @@
+ERROR - 2026-03-25 08:56:28 --> Error connecting to the database: mysqli_sql_exception: MySQL server has gone away in C:\xampp\htdocs\Queuing\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:201
+Stack trace:
+#0 C:\xampp\htdocs\Queuing\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(201): mysqli->real_connect('192.168.3.250', 'root', Object(SensitiveParameterValue), 'ci_queue', 3360, '', 0)
+#1 C:\xampp\htdocs\Queuing\vendor\codeigniter4\framework\system\Database\BaseConnection.php(419): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp\htdocs\Queuing\vendor\codeigniter4\framework\system\Database\BaseConnection.php(654): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp\htdocs\Queuing\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\Queuing\vendor\codeigniter4\framework\system\Model.php(296): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\Queuing\vendor\codeigniter4\framework\system\BaseModel.php(713): CodeIgniter\Model->doFirst()
+#6 C:\xampp\htdocs\Queuing\app\Models\QueueModel.php(39): CodeIgniter\BaseModel->first()
+#7 C:\xampp\htdocs\Queuing\app\Controllers\Queue.php(369): App\Models\QueueModel->getTicketByRoom(3)
+#8 C:\xampp\htdocs\Queuing\vendor\codeigniter4\framework\system\CodeIgniter.php(951): App\Controllers\Queue->apiRoom('3')
+#9 C:\xampp\htdocs\Queuing\vendor\codeigniter4\framework\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Queue))
+#10 C:\xampp\htdocs\Queuing\vendor\codeigniter4\framework\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\Queuing\vendor\codeigniter4\framework\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#12 C:\xampp\htdocs\Queuing\vendor\codeigniter4\framework\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 C:\xampp\htdocs\Queuing\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 C:\xampp\htdocs\Queuing\vendor\codeigniter4\framework\system\rewrite.php(44): require_once('C:\\xampp\\htdocs...')
+#15 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: MySQL server has gone away in C:\xampp\htdocs\Queuing\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:231
+Stack trace:
+#0 C:\xampp\htdocs\Queuing\vendor\codeigniter4\framework\system\Database\BaseConnection.php(419): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp\htdocs\Queuing\vendor\codeigniter4\framework\system\Database\BaseConnection.php(654): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp\htdocs\Queuing\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\xampp\htdocs\Queuing\vendor\codeigniter4\framework\system\Model.php(296): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\xampp\htdocs\Queuing\vendor\codeigniter4\framework\system\BaseModel.php(713): CodeIgniter\Model->doFirst()
+#5 C:\xampp\htdocs\Queuing\app\Models\QueueModel.php(39): CodeIgniter\BaseModel->first()
+#6 C:\xampp\htdocs\Queuing\app\Controllers\Queue.php(369): App\Models\QueueModel->getTicketByRoom(3)
+#7 C:\xampp\htdocs\Queuing\vendor\codeigniter4\framework\system\CodeIgniter.php(951): App\Controllers\Queue->apiRoom('3')
+#8 C:\xampp\htdocs\Queuing\vendor\codeigniter4\framework\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Queue))
+#9 C:\xampp\htdocs\Queuing\vendor\codeigniter4\framework\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\Queuing\vendor\codeigniter4\framework\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#11 C:\xampp\htdocs\Queuing\vendor\codeigniter4\framework\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\xampp\htdocs\Queuing\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 C:\xampp\htdocs\Queuing\vendor\codeigniter4\framework\system\rewrite.php(44): require_once('C:\\xampp\\htdocs...')
+#14 {main}
+CRITICAL - 2026-03-25 08:56:28 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [MySQLi]: MySQL server has gone away
+[Method: GET, Route: queue/api/room/3]
+in SYSTEMPATH\Database\BaseConnection.php on line 465.
+ 1 SYSTEMPATH\Database\BaseConnection.php(654): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `queue_tickets`
+WHERE `room_id` = :room_id:
+AND `status` = :status:
+ LIMIT 1', [...], false)
+ 3 SYSTEMPATH\Model.php(296): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH\BaseModel.php(713): CodeIgniter\Model->doFirst()
+ 5 APPPATH\Models\QueueModel.php(39): CodeIgniter\BaseModel->first()
+ 6 APPPATH\Controllers\Queue.php(369): App\Models\QueueModel->getTicketByRoom(3)
+ 7 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Queue->apiRoom('3')
+ 8 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Queue))
+ 9 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+13 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\Queuing\\public\\index.php')
+ERROR - 2026-03-25 08:57:05 --> Error connecting to the database: mysqli_sql_exception: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond in C:\xampp\htdocs\Queuing\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:201
+Stack trace:
+#0 C:\xampp\htdocs\Queuing\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(201): mysqli->real_connect('192.168.3.250', 'root', Object(SensitiveParameterValue), 'ci_queue', 3360, '', 0)
+#1 C:\xampp\htdocs\Queuing\vendor\codeigniter4\framework\system\Database\BaseConnection.php(419): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp\htdocs\Queuing\vendor\codeigniter4\framework\system\Database\BaseConnection.php(654): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp\htdocs\Queuing\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\Queuing\vendor\codeigniter4\framework\system\Model.php(193): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\Queuing\vendor\codeigniter4\framework\system\BaseModel.php(614): CodeIgniter\Model->doFind(true, 404)
+#6 C:\xampp\htdocs\Queuing\app\Models\QueueModel.php(249): CodeIgniter\BaseModel->find(404)
+#7 C:\xampp\htdocs\Queuing\app\Controllers\Queue.php(272): App\Models\QueueModel->resumeTicket(3, 404)
+#8 C:\xampp\htdocs\Queuing\vendor\codeigniter4\framework\system\CodeIgniter.php(951): App\Controllers\Queue->resume(3, 404)
+#9 C:\xampp\htdocs\Queuing\vendor\codeigniter4\framework\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Queue))
+#10 C:\xampp\htdocs\Queuing\vendor\codeigniter4\framework\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\Queuing\vendor\codeigniter4\framework\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#12 C:\xampp\htdocs\Queuing\vendor\codeigniter4\framework\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 C:\xampp\htdocs\Queuing\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 C:\xampp\htdocs\Queuing\vendor\codeigniter4\framework\system\rewrite.php(44): require_once('C:\\xampp\\htdocs...')
+#15 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond in C:\xampp\htdocs\Queuing\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:231
+Stack trace:
+#0 C:\xampp\htdocs\Queuing\vendor\codeigniter4\framework\system\Database\BaseConnection.php(419): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp\htdocs\Queuing\vendor\codeigniter4\framework\system\Database\BaseConnection.php(654): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp\htdocs\Queuing\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\xampp\htdocs\Queuing\vendor\codeigniter4\framework\system\Model.php(193): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\xampp\htdocs\Queuing\vendor\codeigniter4\framework\system\BaseModel.php(614): CodeIgniter\Model->doFind(true, 404)
+#5 C:\xampp\htdocs\Queuing\app\Models\QueueModel.php(249): CodeIgniter\BaseModel->find(404)
+#6 C:\xampp\htdocs\Queuing\app\Controllers\Queue.php(272): App\Models\QueueModel->resumeTicket(3, 404)
+#7 C:\xampp\htdocs\Queuing\vendor\codeigniter4\framework\system\CodeIgniter.php(951): App\Controllers\Queue->resume(3, 404)
+#8 C:\xampp\htdocs\Queuing\vendor\codeigniter4\framework\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Queue))
+#9 C:\xampp\htdocs\Queuing\vendor\codeigniter4\framework\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\Queuing\vendor\codeigniter4\framework\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#11 C:\xampp\htdocs\Queuing\vendor\codeigniter4\framework\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\xampp\htdocs\Queuing\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 C:\xampp\htdocs\Queuing\vendor\codeigniter4\framework\system\rewrite.php(44): require_once('C:\\xampp\\htdocs...')
+#14 {main}
+CRITICAL - 2026-03-25 08:57:05 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [MySQLi]: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond
+[Method: GET, Route: queue/resume/3/404]
+in SYSTEMPATH\Database\BaseConnection.php on line 465.
+ 1 SYSTEMPATH\Database\BaseConnection.php(654): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `queue_tickets`
+WHERE `queue_tickets`.`id` = :queue_tickets.id:', [...], false)
+ 3 SYSTEMPATH\Model.php(193): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH\BaseModel.php(614): CodeIgniter\Model->doFind(true, 404)
+ 5 APPPATH\Models\QueueModel.php(249): CodeIgniter\BaseModel->find(404)
+ 6 APPPATH\Controllers\Queue.php(272): App\Models\QueueModel->resumeTicket(3, 404)
+ 7 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Queue->resume(3, 404)
+ 8 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Queue))
+ 9 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+13 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\Queuing\\public\\index.php')
